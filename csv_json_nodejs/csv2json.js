@@ -9,17 +9,11 @@ Developer: Antony Wu (antony@meshway.com)
 
 var csv = require('csv'),
     fs = require('fs'),
-    _ = require('underscore'),
-    masterOptions = {
-        inputFile: '../fee-schedule-master-file-fy13_displayFields.csv',
-        outputFile: 'fee-schedule-master-file-fy13.json'
-    },
-    alcoholOptions = {
-        inputFile: '../alcohol-fee-schedule.csv',
-        outputFile: 'alcohol-fee-schedule.json'
-    };
+    _ = require('underscore');
 
 (function(options) {
+    console.log('Input File: ' + options.inputFile);
+    console.log('Output File: ' + options.outputFile);
     var header = null;
     var output = [];
     csv()
@@ -38,4 +32,4 @@ var csv = require('csv'),
             });
         });
 
-})(masterOptions);
+})({inputFile: process.argv[2], outputFile: process.argv[3] });
